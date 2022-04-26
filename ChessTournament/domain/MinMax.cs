@@ -26,8 +26,13 @@ namespace ChessTournament.domain
 
         public MinMax(int min, int max)
         {
-            _min = min;
-            _max = max;
+            Min = min; // 200
+            Max = max; // 100
+            // conditional statements
+            if(min > max) // specific business logic
+            {
+                Max = min + max;
+            }
         }
     }
 }

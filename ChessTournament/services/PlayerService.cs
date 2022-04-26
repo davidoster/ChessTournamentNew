@@ -44,6 +44,8 @@ namespace ChessTournament.services
             {
                 //players.Add(new RandomPlayer());
                 //players.Add(new RandomPlayer(_idDetails, _nameDetails, _rankingDetails));
+                
+                // how to make sure we have unique player ids
                 players.Add(new RandomPlayer(_playerDetails));
             }
             return (players);

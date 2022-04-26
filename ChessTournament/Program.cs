@@ -12,12 +12,13 @@ namespace ChessTournament
     {
         static void Main(string[] args)
         {
-            MinMax Id = new MinMax(100, 200);
+            int noOfPlayers = 20;
+            MinMax Id = new MinMax(100, 120);
             MinMax Ranking = new MinMax(1000, 2000);
             NameMinMax Name = new NameMinMax(65, 91, 4);
 
             PlayerDetails playerDetails = new PlayerDetails(Id, Ranking, Name);
-            Tournament tournament = new Tournament(playerDetails, 100);
+            Tournament tournament = new Tournament(playerDetails, noOfPlayers);
             tournament.Start();
 
             //Player p1 = CreateRandomPlayer(); // new Player(1, "Pasparov", 0);
