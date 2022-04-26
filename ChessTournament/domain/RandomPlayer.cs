@@ -8,6 +8,8 @@ namespace ChessTournament.domain
 {
     class RandomPlayer : Player
     {
+        private static Random _rand = new Random((int)DateTime.Now.Ticks);
+        //private PlayerDetails playerDetails;
         private int[] _idDetails;
         private int[] _rankingDetails;
         private int[] _nameDetails;
@@ -52,8 +54,7 @@ namespace ChessTournament.domain
         private int CreateRandomNumber(int min, int max)
         {
             int result = 0;
-            Random rand = new Random((int)DateTime.Now.Ticks);
-            result = rand.Next(min, max);
+            result = _rand.Next(min, max);
             return (result);
         }
 
@@ -61,10 +62,9 @@ namespace ChessTournament.domain
         {
             string result = "";
             StringBuilder sb = new StringBuilder();
-            Random rand = new Random((int)DateTime.Now.Ticks);
             for (int i = 0; i < noOfChars; i++)
             {
-                sb.Append((char)rand.Next(min, max));
+                sb.Append((char)_rand.Next(min, max));
             }
             result = sb.ToString();
             return (result);

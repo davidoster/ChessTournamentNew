@@ -43,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="domain\MinMax.cs" />
+    <Compile Include="domain\NameMinMax.cs" />
     <Compile Include="domain\Player.cs" />
+    <Compile Include="domain\PlayerDetails.cs" />
     <Compile Include="domain\RandomPlayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
