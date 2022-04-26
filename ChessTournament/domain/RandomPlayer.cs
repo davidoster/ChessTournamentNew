@@ -9,7 +9,7 @@ namespace ChessTournament.domain
     class RandomPlayer : Player
     {
         private static Random _rand = new Random((int)DateTime.Now.Ticks);
-        //private PlayerDetails playerDetails;
+        private PlayerDetails _playerDetails;
         private int[] _idDetails;
         private int[] _rankingDetails;
         private int[] _nameDetails;
@@ -41,6 +41,15 @@ namespace ChessTournament.domain
             this.Id = CreateRandomNumber(_idDetails[0], _idDetails[1]);
             this.Name = CreateRandomName(_nameDetails[0], _nameDetails[1], _nameDetails[2]);
             this.Ranking = CreateRandomNumber(_rankingDetails[0], _rankingDetails[1]);
+        }
+
+        public RandomPlayer(PlayerDetails playerDetails)
+        {
+            _playerDetails = playerDetails;
+            Id = CreateRandomNumber(_playerDetails.Id.Min, _playerDetails.Id.Max);
+            Ranking = CreateRandomNumber(_playerDetails.Ranking.Min, _playerDetails.Ranking.Max);
+            Name = CreateRandomName(_playerDetails.Name.Min, _playerDetails.Name.Max, _playerDetails.Name.Length);
+ 
         }
 
         public override string ToString()

@@ -17,7 +17,7 @@ namespace ChessTournament
             NameMinMax Name = new NameMinMax(65, 91, 4);
 
             PlayerDetails playerDetails = new PlayerDetails(Id, Ranking, Name);
-            Tournament tournament = new Tournament(playerDetails);
+            Tournament tournament = new Tournament(playerDetails, 100);
             tournament.Start();
 
             //Player p1 = CreateRandomPlayer(); // new Player(1, "Pasparov", 0);

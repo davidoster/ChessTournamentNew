@@ -13,6 +13,7 @@ namespace ChessTournament.services
         private int[] _idDetails;
         private int[] _nameDetails;
         private int[] _rankingDetails;
+        private PlayerDetails _playerDetails;
 
         public List<Player> Players { get; private set; }
 
@@ -29,13 +30,21 @@ namespace ChessTournament.services
             Players = GeneratePlayers();
         }
 
+        public PlayerService(PlayerDetails playerDetails, int noOfPlayers)
+        {
+            _playerDetails = playerDetails;
+            _noOfPlayers = noOfPlayers;
+            Players = GeneratePlayers();
+        }
+
         private List<Player> GeneratePlayers()
         {
             List<Player> players = new List<Player>();
             for(int i = 0; i < _noOfPlayers; i++)
             {
                 //players.Add(new RandomPlayer());
-                players.Add(new RandomPlayer(_idDetails, _nameDetails, _rankingDetails));
+                //players.Add(new RandomPlayer(_idDetails, _nameDetails, _rankingDetails));
+                players.Add(new RandomPlayer(_playerDetails));
             }
             return (players);
         }

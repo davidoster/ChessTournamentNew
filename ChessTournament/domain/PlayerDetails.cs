@@ -31,5 +31,12 @@ namespace ChessTournament.domain
             get { return _name; }
             set { _name = value; }
         }
+
+        public PlayerDetails(MinMax id, MinMax ranking, NameMinMax name)
+        {
+            Id = id;
+            Ranking = ranking;
+            Name = name;
+        }
     }
 }
