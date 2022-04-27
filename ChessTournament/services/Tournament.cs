@@ -32,6 +32,12 @@ namespace ChessTournament.services
             NoOfPlayers = noOfPlayers;
         }
 
+        public Tournament(UserInputService userInputService)
+        {
+            //PlayerDetails = userInputService.PlayerDetails;
+            //NoOfPlayers = userInputService.NoOfPlayers;
+        }
+
         public void Start()
         {
             //int[] idDetails = new int[2];

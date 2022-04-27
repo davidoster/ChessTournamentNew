@@ -12,13 +12,19 @@ namespace ChessTournament
     {
         static void Main(string[] args)
         {
-            int noOfPlayers = 30;
-            MinMax Id = new MinMax(100, 200);
-            MinMax Ranking = new MinMax(1000, 2000);
-            NameMinMax Name = new NameMinMax(65, 91, 4);
+            
+            //MinMax Id = new MinMax(100, 200);
+            //MinMax Ranking = new MinMax(1000, 2000);
+            //NameMinMax Name = new NameMinMax(65, 91, 4);
 
-            PlayerDetails playerDetails = new PlayerDetails(Id, Ranking, Name);
-            Tournament tournament = new Tournament(playerDetails, noOfPlayers);
+            CSVDataInputService CSVDataInputService = new CSVDataInputService(@"C:\Users\george.pasparakis\source\repos\ChessTournamentNew\ChessTournament\TournamentData.csv");
+            int noOfPlayers = CSVDataInputService.NoOfPlayers;
+            //CSVDataInputservice.NoOfPlayers
+            //CSVDataInputservice.PlayerDetails
+
+            //PlayerDetails playerDetails = new PlayerDetails(Id, Ranking, Name); // new UserInputService();
+            PlayerDetails playerDetails = CSVDataInputService.PlayerDetails;
+            Tournament tournament = new Tournament(playerDetails, noOfPlayers); // new Tournament(new UserInputService());
             tournament.Start(); 
 
             //Player p1 = CreateRandomPlayer(); // new Player(1, "Pasparov", 0);
