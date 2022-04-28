@@ -46,8 +46,8 @@ namespace ChessTournament.services
 
         public Tournament(JSONDataInputService jSONDataInputService)
         {
-            //NoOfPlayers = jSONDataInputService.NoOfPlayers;
-            //PlayerDetails = jSONDataInputService.PlayerDetails;
+            NoOfPlayers = jSONDataInputService.NoOfPlayers;
+            PlayerDetails = jSONDataInputService.PlayerDetails;
         }
         
         public void Start()

@@ -12,8 +12,9 @@ namespace ChessTournament
     {
         static void Main(string[] args)
         {
-            string fileName = @"C:\Users\george.pasparakis\source\repos\ChessTournamentNew\ChessTournament\TournamentData.csv";
-            Tournament tournament = new Tournament(new CSVDataInputService(fileName));
+            string fileName = @"C:\Users\george.pasparakis\source\repos\ChessTournamentNew\ChessTournament\TournamentData.json";
+                //@"C:\Users\george.pasparakis\source\repos\ChessTournamentNew\ChessTournament\TournamentData.csv";
+            Tournament tournament = new Tournament(new JSONDataInputService(fileName));
             tournament.Start();
             Console.ReadKey();
         }

@@ -1,22 +1,16 @@
 ﻿{
   "noOfPlayers": 10,
-  "id": [
-    {
-      "min": 100,
-      "max": 200
-    }
-  ],
-  "ranking": [
-    {
-      "min": 1000,
-      "max": 2000
-    }
-  ],
-  "name": [
-    {
-      "min": 65,
-      "max": 91,
-      "length": 4
-    }
-  ]
+  "id": {
+    "min": 100,
+    "max": 200
+  },
+  "ranking": {
+    "min": 1000,
+    "max": 2000
+  },
+  "name": {
+    "min": 65,
+    "max": 91,
+    "length": 4
+  }
 }

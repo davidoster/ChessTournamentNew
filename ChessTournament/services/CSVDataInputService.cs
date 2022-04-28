@@ -26,6 +26,10 @@ namespace ChessTournament.services
             set { _noOfPlayers = value; }
         }
 
+        public CSVDataInputService()
+        {
+
+        }
 
         public CSVDataInputService(string fileName)
         {
