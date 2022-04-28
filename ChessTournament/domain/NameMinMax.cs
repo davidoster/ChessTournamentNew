@@ -21,5 +21,10 @@ namespace ChessTournament.domain
             _length = length;
         }
 
+        public override string ToString()
+        {
+            return($"NameMinMax {{ Min: {Min} Max: {Max} Length: {Length} }}");
+        }
+
     }
 }

@@ -34,5 +34,20 @@ namespace ChessTournament.domain
                 Max = min + max;
             }
         }
+
+        public override string ToString()
+        {
+            return ($"MinMax {{ Min: {Min} Max: {Max} }}");
+        }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

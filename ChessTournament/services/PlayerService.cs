@@ -42,43 +42,12 @@ namespace ChessTournament.services
             List<Player> players = new List<Player>();
             var newPlayer = new RandomPlayer(_playerDetails);
             players.Add(newPlayer);
-            var newId = 0;
 
-            for (int i = 0; i < _noOfPlayers; i++)
+            for (int i = 0; i < _noOfPlayers - 1; i++)
             {
-                bool notFound = true;
-                //var newId = RandomService.Number(_playerDetails.Id.Min, _playerDetails.Id.Max);
-                while (notFound) // για οσο δεν βρισκω αυτο το μοναδικο Id
-                {
-                    newId = RandomService.Number(_playerDetails.Id.Min, _playerDetails.Id.Max);
-                    foreach (Player p in players)
-                    {
-                        if(p.Id == newId)
-                        {
-                            // just found out that the newId is not unique
-                            break;
-                        } 
-                        if(players.Last() == p)
-                        {
-                            notFound = false;
-                        }
-                        // αν ειμαι στον τελευταίο RandomPlayer της λίστας και δεν έχω βρεί ακόμα το newId 
-                        // τότε σιγουρα εχω μοναδικό Id
-                        // notFound = false;
-                    }
-                
-                }
-                // προσθεσε εναν RandmoPlayer με αυτό το newId
-                players.Add(new RandomPlayer(_playerDetails, newId));
+                players.Add(new RandomPlayer(_playerDetails, GenerateUniqueId(GetPlayersIds(players))));
             }
             return (players);
-
-            //players.Add(new RandomPlayer());
-            //players.Add(new RandomPlayer(_idDetails, _nameDetails, _rankingDetails));
-
-            // how to make sure we have unique player ids
-            //players.Add(new RandomPlayer(_playerDetails));
-           
         }
 
         public void Initialize()
@@ -92,6 +61,21 @@ namespace ChessTournament.services
             _idDetails = idDetails;
             _nameDetails = nameDetails;
             _rankingDetails = rankingDetails;
+        }
+
+        private List<int> GetPlayersIds(List<Player> players)
+        {
+            return (new List<int>(players.Select(player => player.Id))); // foreach players add(players.id) - LINQ
+        }
+
+        private int GenerateUniqueId(List<int> ids)
+        {
+            var newId = RandomService.Number(_playerDetails.Id.Min, _playerDetails.Id.Max);
+            while (ids.Contains(newId))
+            {
+                newId = RandomService.Number(_playerDetails.Id.Min, _playerDetails.Id.Max);
+            }
+            return (newId);
         }
     }
 }

@@ -38,5 +38,20 @@ namespace ChessTournament.domain
             Ranking = ranking;
             Name = name;
         }
+
+        public override string ToString()
+        {
+            return ($"PlayerDetails {{ Id: {Id} Ranking: {Ranking} Name: {Name} }}");
+        }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
